@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="movies_title">Movies Title</string>
     <string name="d_n_n_times">%d \n\n times</string>
+    <string name="released_date">Released Date</string>
+    <string name="title">Title</string>
 </resources>
