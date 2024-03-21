@@ -31,6 +31,7 @@
             android:paddingLeft="16dp"
             android:background="@color/primary_violet"
             android:paddingRight="16dp"
+            style="@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface"
             android:visibility="visible"
             app:itemIconTint="@color/white"
             app:itemTextColor="@color/white"
