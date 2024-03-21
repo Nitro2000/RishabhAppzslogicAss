@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/exitLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        >
+
+
+
+        <include layout="@layout/top_toolbar"
+            android:id="@+id/topBar"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/exitCountLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_corner_white_10"
+            app:layout_constraintTop_toBottomOf="@id/topBar"
+            android:layout_marginTop="@dimen/space_24"
+            android:elevation="6dp"
+            android:paddingVertical="@dimen/space_16"
+            android:layout_marginHorizontal="@dimen/space_16"
+            >
+
+
+            <TextView
+                android:id="@+id/txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You have open this application"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:visibility="visible"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/timesTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/d_n_n_times"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:visibility="visible"
+                android:layout_marginTop="@dimen/space_8"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+      <androidx.appcompat.widget.AppCompatButton
+          android:id="@+id/closeBtn"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Close App"
+          android:textAllCaps="false"
+          android:textColor="@color/white"
+          android:paddingHorizontal="40dp"
+          android:background="@drawable/bg_corner_white_10"
+          android:backgroundTint="@color/primary_violet"
+          app:layout_constraintTop_toBottomOf="@id/exitCountLay"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
