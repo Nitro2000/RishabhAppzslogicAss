@@ -36,25 +36,22 @@ class ExitFragment : Fragment() {
         return binding.root
     }
 
-    private fun getCount() {
-        viewModel.getCount().observe(viewLifecycleOwner) {
-            viewModel.count = it
-            binding.timesTxt.text = getString(R.string.d_n_n_times, viewModel.count)
-        }
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (viewModel.count == null) getCount()
-        else {
-            binding.timesTxt.text = getString(R.string.d_n_n_times, viewModel.count)
-        }
 
+        bindObserver()
         binding.closeBtn.setOnClickListener {
             requireActivity().finish()
         }
 
+    }
+
+    private fun bindObserver() {
+        viewModel.count.observe(viewLifecycleOwner) {
+            binding.timesTxt.text = getString(R.string.d_n_n_times, it)
+        }
     }
 
 }

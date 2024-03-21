@@ -1,5 +1,7 @@
 package com.bitspan.rishabhappzslogicass.presentation.viewmodel
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
@@ -12,14 +14,22 @@ import javax.inject.Inject
 @HiltViewModel
 class CommonViewModel @Inject constructor(private val dataStore: DataStoreManager) : ViewModel() {
 
-    var count: Int? = null
+    private val _count: MutableLiveData<Int> = MutableLiveData()
+    val count: LiveData<Int>
+        get() = _count
 
-    fun saveCount(count: Int) {
+    var openBool = false
+
+    fun saveCountToStorage(count: Int) {
         viewModelScope.launch {
             dataStore.put(DataStoreManagerImpl.exitCount, count)
         }
     }
 
-    fun getCount() = dataStore.get(DataStoreManagerImpl.exitCount, 1).asLiveData()
+    fun getCountFromStorage() = dataStore.get(DataStoreManagerImpl.exitCount, 1).asLiveData()
+
+    fun updateCount(count: Int) {
+        _count.postValue(count)
+    }
 
 }

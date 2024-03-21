@@ -27,7 +27,6 @@ class HomeFragment : Fragment() {
     private lateinit var mContext: Context
 
     private val movieVM: MovieViewModel by viewModels()
-    private val viewModel: CommonViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,16 +43,9 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getMovies()
-        saveCount()
 
     }
 
-    private fun saveCount() {
-        viewModel.getCount().observe(viewLifecycleOwner) {
-            viewModel.saveCount(it + 1)
-            viewModel.count = it
-        }
-    }
 
     private fun getMovies() {
         startShimmer()
@@ -94,6 +86,5 @@ class HomeFragment : Fragment() {
             movieRecView.visibility = View.VISIBLE
         }
     }
-
 
 }
